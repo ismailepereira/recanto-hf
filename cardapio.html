@@ -21,6 +21,8 @@
 </head>
 <body>
 
+  <div class="menu-progress" aria-hidden="true"><span id="menu-progress-bar"></span></div>
+
   <nav class="nav is-stuck" id="nav">
     <div class="wrap nav-inner">
       <a href="index.html" class="brand" aria-label="Recanto HF — início">
@@ -49,13 +51,44 @@
     </div>
   </header>
 
-  <div class="menu-nav">
-    <div class="wrap menu-nav-scroll" id="menu-chips" role="navigation" aria-label="Categorias do cardápio"></div>
+  <!-- Celular: barra fina com a categoria atual + acesso à lista completa. -->
+  <div class="menu-bar" id="menu-bar">
+    <span class="menu-bar-now" id="menu-bar-now">Cardápio<small>1 de 15</small></span>
+    <button class="menu-bar-btn" id="menu-open" aria-haspopup="dialog" aria-controls="menu-drawer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/>
+      </svg>
+      Categorias
+    </button>
   </div>
 
-  <main class="wrap" id="menu-root">
-    <p style="padding-block: 4rem; color: var(--cream-dim);">Carregando o cardápio…</p>
-  </main>
+  <div class="wrap menu-layout">
+    <!-- Computador: índice sempre à vista, marcando onde a pessoa está. -->
+    <aside class="menu-aside">
+      <p class="menu-index-title">Categorias</p>
+      <nav class="menu-index" id="menu-index" aria-label="Categorias do cardápio"></nav>
+    </aside>
+
+    <main id="menu-root">
+      <p style="padding-block: 4rem; color: var(--cream-dim);">Carregando o cardápio…</p>
+    </main>
+  </div>
+
+  <!-- Celular: gaveta com todas as categorias, sem rolagem horizontal. -->
+  <div class="menu-drawer" id="menu-drawer" role="dialog" aria-modal="true" aria-label="Categorias do cardápio">
+    <div class="menu-drawer-veil" id="menu-veil"></div>
+    <div class="menu-drawer-panel">
+      <div class="menu-drawer-head">
+        <p>Ir para</p>
+        <button class="menu-drawer-close" id="menu-close" aria-label="Fechar categorias">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <nav class="menu-drawer-list" id="menu-drawer-list"></nav>
+    </div>
+  </div>
 
   <div class="wrap">
     <p class="menu-note">
