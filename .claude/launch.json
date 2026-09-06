@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "recanto-hf",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "5311", "--directory", "src"],
+      "port": 5311
+    }
+  ]
+}
