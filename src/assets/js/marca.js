@@ -16,6 +16,11 @@
         '<text x="100" y="94" text-anchor="middle" fill="currentColor"' +
         ' font-family="Jost, Arial, sans-serif" font-size="11" letter-spacing="3.4">GASTROBAR · CAFETERIA</text>' +
       '</symbol>' +
+      /* Lupa: dica de que dá para segurar a foto. */
+      '<symbol id="hf-lupa" viewBox="0 0 24 24">' +
+        '<circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.9"/>' +
+        '<path d="M15.4 15.4L21 21M8 10.5h5M10.5 8v5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>' +
+      '</symbol>' +
       /* Folha central do filete divisor. */
       '<symbol id="hf-folha" viewBox="0 0 24 24">' +
         '<path d="M12 3c4.5 2.4 7 5.6 7 9 0 4-3.1 7-7 9-3.9-2-7-5-7-9 0-3.4 2.5-6.6 7-9z" fill="none" stroke="currentColor" stroke-width="1.5"/>' +
@@ -43,6 +48,9 @@
     },
     filete: function () {
       return '<span class="rule" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#hf-folha"/></svg></span>';
+    },
+    lupa: function () {
+      return '<span class="plate-zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#hf-lupa"/></svg></span>';
     }
   };
 })();

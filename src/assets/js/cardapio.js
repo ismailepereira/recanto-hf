@@ -62,6 +62,13 @@
     selo.innerHTML = '<svg viewBox="0 0 200 118"><use href="#hf-selo"/></svg>';
     card.appendChild(selo);
 
+    if (item.img) {
+      var lupa = el('span', 'plate-zoom');
+      lupa.setAttribute('aria-hidden', 'true');
+      lupa.innerHTML = '<svg viewBox="0 0 24 24"><use href="#hf-lupa"/></svg>';
+      card.appendChild(lupa);
+    }
+
     var body = el('div', 'plate-body');
     body.appendChild(el('h3', 'plate-name', item.nome));
 
@@ -147,14 +154,15 @@
     var secoes = Array.prototype.slice.call(root.querySelectorAll('.menu-cat'));
     var links = Array.prototype.slice.call(document.querySelectorAll('.menu-index a, .menu-drawer-list a'));
     var total = categorias.length;
+    var atual = -1;
+    var agendado = false;
 
-    function marcar(id) {
-      var pos = 0;
-      links.forEach(function (a) {
-        var on = a.dataset.target === id;
-        a.classList.toggle('is-active', on);
-      });
-      secoes.forEach(function (s, i) { if (s.id === id) pos = i; });
+    function marcar(pos) {
+      if (pos === atual) return;
+      atual = pos;
+
+      var id = secoes[pos].id;
+      links.forEach(function (a) { a.classList.toggle('is-active', a.dataset.target === id); });
 
       if (barNow) {
         barNow.innerHTML = '';
@@ -166,16 +174,28 @@
       if (ativo && ativo.scrollIntoView) ativo.scrollIntoView({ block: 'nearest' });
     }
 
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) marcar(entry.target.id);
-        });
-      }, { rootMargin: '-22% 0px -70% 0px' });
-      secoes.forEach(function (s) { io.observe(s); });
+    /* A categoria "atual" é a última cujo topo já passou da linha de leitura.
+       Cálculo direto em vez de IntersectionObserver: com uma faixa estreita, o
+       observer não dispara quando a pessoa volta ao topo de uma vez. */
+    function conferir() {
+      agendado = false;
+      var linha = window.scrollY + window.innerHeight * 0.3;
+      var pos = 0;
+      for (var i = 0; i < secoes.length; i++) {
+        if (secoes[i].offsetTop <= linha) pos = i; else break;
+      }
+      marcar(pos);
     }
 
-    if (secoes.length) marcar(secoes[0].id);
+    function agendar() {
+      if (agendado) return;
+      agendado = true;
+      requestAnimationFrame(conferir);
+    }
+
+    window.addEventListener('scroll', agendar, { passive: true });
+    window.addEventListener('resize', agendar);
+    conferir();
   }
 
   /* Quanto do cardápio já foi percorrido. */

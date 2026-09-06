@@ -25,6 +25,8 @@ recanto-hf/
 │   └── assets/
 │       ├── css/styles.css       # tokens de design + layout
 │       ├── js/main.js           # nav, reveals no scroll, WhatsApp flutuante
+│       ├── js/marca.js          # selo oval, folha e lupa como símbolos SVG
+│       ├── js/lupa.js           # segurar na foto abre em tela cheia
 │       ├── js/cardapio.js       # monta o cardápio a partir do JSON
 │       ├── data/menu.json       # 15 categorias · 96 itens (gerado)
 │       ├── img/menu/            # 80 fotos reais dos pratos (do cardápio do cliente)
