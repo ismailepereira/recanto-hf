@@ -17,7 +17,8 @@ recanto-hf/
 │   ├── briefing.md              # spec do projeto e decisões de design
 │   └── inteligencia.md          # dados do cliente (ler ANTES de mexer no site)
 ├── tools/
-│   └── sync_menu.py             # baixa cardápio + fotos do Takeat → menu.json
+│   ├── sync_menu.py             # baixa cardápio + fotos do Takeat → menu.json
+│   └── servidor_local.py        # servidor de teste com suporte a HTTP Range
 ├── src/
 │   ├── index.html               # hero, números, mundos, vitrine, visitar, CTA
 │   ├── cardapio.html            # cardápio completo (renderizado do JSON)
@@ -27,6 +28,8 @@ recanto-hf/
 │       ├── js/main.js           # nav, reveals no scroll, WhatsApp flutuante
 │       ├── js/marca.js          # selo oval, folha e lupa como símbolos SVG
 │       ├── js/lupa.js           # segurar na foto abre em tela cheia
+│       ├── js/hero-video.js     # o vídeo do hero anda com a rolagem
+│       ├── video/               # hero-drink.mp4 (1,9 MB) + poster
 │       ├── js/cardapio.js       # monta o cardápio a partir do JSON
 │       ├── data/menu.json       # 15 categorias · 96 itens (gerado)
 │       ├── img/menu/            # 80 fotos reais dos pratos (do cardápio do cliente)
@@ -36,8 +39,12 @@ recanto-hf/
 
 ## Rodando localmente
 ```
-python -m http.server 5311 --directory src
+python tools/servidor_local.py 5311 src
 ```
+> Use este servidor, não o `python -m http.server`: o embutido não responde a
+> requisições HTTP Range, e sem Range o navegador informa `seekable=[0,0]` —
+> o vídeo do hero carrega mas não avança com a rolagem. GitHub Pages e
+> qualquer servidor real suportam Range; só o de teste precisava disso.
 
 ## Publicando uma atualização
 O código-fonte fica na `main`; o que vai pro ar é o conteúdo de `src/`, servido
@@ -56,6 +63,24 @@ python tools/sync_menu.py
 ```
 O script regrava `src/assets/data/menu.json` e baixa só as fotos que faltam.
 
+## Vídeo do hero
+`src/assets/video/hero-drink.mp4` — 10 s, 1280×720, sem áudio, 1,9 MB.
+Codificado com keyframe a cada 6 quadros (`-g 6`), que é o que deixa o seek
+por rolagem fluido; com o GOP padrão o vídeo engasga ao ser percorrido.
+
+No computador o hero é um trilho de 210svh: a cena fica presa e a rolagem
+define o tempo do vídeo. No celular (≤860px) e para quem pede menos movimento,
+o trilho some e o vídeo roda sozinho em laço.
+
+Para trocar o vídeo, refaça a conversão:
+```
+ffmpeg -i entrada.mp4 -vf "scale=1280:720:flags=lanczos" -an   -c:v libx264 -profile:v high -pix_fmt yuv420p -crf 26 -preset slow   -g 6 -keyint_min 6 -sc_threshold 0 -movflags +faststart   src/assets/video/hero-drink.mp4
+```
+
+> **Atenção de marca:** a taça no vídeo atual traz o logo **LILLET** (aperitivo
+> francês). O Recanto HF não tem relação com a marca — vale trocar o vídeo ou
+> confirmar com o cliente antes de divulgar.
+
 ## Identidade visual
 Noturna, de gastrobar:
 - Fundo `#0b0908` → `#131010`
@@ -66,6 +91,7 @@ Títulos: *Cormorant Garamond* · Texto/UI: *Jost*
 
 ## Pendências (a confirmar com o cliente)
 - [ ] Fotos do ambiente e da fachada — hoje o site usa só fotos de prato
+- [ ] Vídeo próprio para o hero, sem marca de terceiro na taça
 - [ ] Logo oficial (hoje é um monograma tipográfico "HF")
 - [ ] Confirmar horário (Instagram diz 9h–23h30; Google diz que abre 10h)
 - [ ] Endereço com número na Av. Getúlio Vargas
