@@ -251,9 +251,8 @@ h1, h2, h3 {
   position: relative;
   height: 210svh;
 }
-@media (max-width: 860px), (prefers-reduced-motion: reduce) {
-  .hero { height: 100svh; }
-}
+@media (max-width: 860px) { .hero { height: 190svh; } }
+@media (prefers-reduced-motion: reduce) { .hero { height: 100svh; } }
 
 .hero-stage {
   position: sticky;
@@ -274,6 +273,12 @@ h1, h2, h3 {
   object-position: center 46%;
   filter: brightness(0.6) saturate(0.95) contrast(1.06);
 }
+/* Tela estreita corta 3/4 do quadro 16:9: desloca o enquadramento para a
+   taça, que está um pouco à direita do centro. */
+@media (max-width: 860px) {
+  .hero-bg video, .hero-bg img { object-position: 58% 44%; }
+}
+
 .hero-bg::after {
   content: "";
   position: absolute;
@@ -334,7 +339,7 @@ h1, h2, h3 {
   width: 0;
   background: linear-gradient(90deg, var(--copper), var(--copper-lt));
 }
-@media (max-width: 860px), (prefers-reduced-motion: reduce) { .hero-scrub { display: none; } }
+@media (prefers-reduced-motion: reduce) { .hero-scrub { display: none; } }
 
 /* ---------------------------------------------------------------- Marquee */
 
