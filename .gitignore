@@ -1,0 +1,23 @@
+# Segredos — nunca versionar
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+credentials*.json
+
+# Python (tools/)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editores
+.vscode/
+.idea/
+*.swp
