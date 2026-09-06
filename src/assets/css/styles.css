@@ -23,6 +23,7 @@
 
   /* Tipografia */
   --display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --stencil: "Oswald", "Jost", ui-sans-serif, "Segoe UI", Arial, sans-serif;
   --sans:    "Jost", ui-sans-serif, system-ui, "Segoe UI", Arial, sans-serif;
 
   /* Ritmo */
@@ -81,7 +82,14 @@ h1, h2, h3 {
 }
 .display em { font-style: italic; color: var(--copper-lt); }
 
-.h-section { font-size: clamp(2.4rem, 6vw, 4.6rem); }
+.h-section {
+  font-family: var(--stencil);
+  font-weight: 500;
+  font-size: clamp(2rem, 5vw, 3.9rem);
+  line-height: 1.04;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+}
 
 .eyebrow {
   font-family: var(--sans);
@@ -365,7 +373,8 @@ section { position: relative; }
 }
 .stat:first-child { border-left: 0; }
 .stat-num {
-  font-family: var(--display);
+  font-family: var(--stencil);
+  font-weight: 500;
   font-size: clamp(2.6rem, 6vw, 4.4rem);
   line-height: 1;
   color: var(--cream);
@@ -404,7 +413,7 @@ section { position: relative; }
   inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  z-index: -2;
+  z-index: 0;
   transition: transform 1.1s var(--ease), filter 0.7s var(--ease);
   filter: brightness(0.72) saturate(0.95);
 }
@@ -412,11 +421,12 @@ section { position: relative; }
   content: "";
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 1;
+  pointer-events: none;
   background: linear-gradient(to top, rgba(11, 9, 8, 0.92) 6%, rgba(11, 9, 8, 0.15) 58%, transparent);
 }
 .world:hover img { transform: scale(1.07); filter: brightness(0.86) saturate(1.05); }
-.world-body { padding: clamp(1.6rem, 3vw, 2.6rem); width: 100%; }
+.world-body { padding: clamp(1.6rem, 3vw, 2.6rem); width: 100%; position: relative; z-index: 2; }
 .world-index {
   font-size: 0.66rem;
   letter-spacing: 0.3em;
@@ -424,44 +434,149 @@ section { position: relative; }
   display: block;
   margin-bottom: 0.7rem;
 }
-.world h3 { font-size: clamp(1.9rem, 3vw, 2.7rem); }
+.world h3 {
+  font-family: var(--stencil);
+  font-weight: 600;
+  font-size: clamp(1.6rem, 2.7vw, 2.3rem);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
 .world p { color: var(--cream-mid); font-size: 0.9rem; margin: 0.6rem 0 0; max-width: 30ch; }
+
+/* ============================================== Cartão de prato (template) =
+   Linguagem visual dos templates de peça: foto ocupando tudo, logo oval
+   discreta no alto, e o bloco de texto — nome, ornamento, ingredientes e
+   PREÇO — dentro da própria foto, sobre um pé escuro.
+   ========================================================================== */
+
+.plate {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--ink-2);
+  isolation: isolate;
+  container-type: inline-size;
+}
+.plate img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(0.86) saturate(1.05) contrast(1.03);
+  transition: transform 1.1s var(--ease), filter 0.7s var(--ease);
+  z-index: 0;
+}
+.plate:hover img { transform: scale(1.05); filter: brightness(0.98) saturate(1.1); }
+
+/* Pé escuro: garante leitura do texto sem apagar a foto. */
+.plate::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(to top, rgba(11, 9, 8, 0.96) 2%, rgba(11, 9, 8, 0.8) 21%,
+                    rgba(11, 9, 8, 0.06) 52%, rgba(11, 9, 8, 0.2) 100%);
+}
+
+/* Moldura fina interna, como nas peças impressas. */
+.plate::before {
+  content: "";
+  position: absolute;
+  inset: clamp(9px, 3cqw, 16px);
+  border: 1px solid rgba(243, 237, 228, 0.16);
+  pointer-events: none;
+  z-index: 4;
+}
+
+.plate-logo {
+  position: absolute;
+  top: clamp(16px, 6cqw, 30px);
+  right: clamp(16px, 6cqw, 30px);
+  z-index: 3;
+  width: clamp(58px, 26cqw, 100px);
+  opacity: 0.92;
+}
+.plate-logo svg { width: 100%; height: auto; display: block; }
+
+.plate-body {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 3;
+  padding: clamp(0.9rem, 6cqw, 1.9rem) clamp(1rem, 7cqw, 2.1rem) clamp(1.1rem, 7cqw, 2rem);
+  text-align: center;
+}
+
+.plate-name {
+  font-family: var(--stencil);
+  font-weight: 600;
+  font-size: clamp(1rem, 7.8cqw, 2.15rem);
+  line-height: 1.02;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin: 0;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
+}
+
+.plate-ing {
+  margin: clamp(0.5rem, 3cqw, 0.85rem) 0 0;
+  font-size: clamp(0.55rem, 3.1cqw, 0.76rem);
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cream-mid);
+  line-height: 1.7;
+}
+.plate-ing.is-sentence {
+  letter-spacing: 0.03em;
+  text-transform: none;
+  font-size: clamp(0.66rem, 3.4cqw, 0.86rem);
+  color: var(--cream-dim);
+}
+
+.plate-price {
+  display: block;
+  margin-top: clamp(0.55rem, 3.4cqw, 1rem);
+  font-family: var(--stencil);
+  font-weight: 500;
+  font-size: clamp(0.86rem, 5cqw, 1.3rem);
+  letter-spacing: 0.14em;
+  color: var(--copper-lt);
+}
+
+/* Ornamento: filete com uma folha ao centro (o "•><•" das peças). */
+.rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.4rem, 2.6cqw, 0.75rem);
+  margin-top: clamp(0.5rem, 3cqw, 0.85rem);
+}
+.rule::before, .rule::after {
+  content: "";
+  height: 1px;
+  width: clamp(34px, 18%, 88px);
+  background: linear-gradient(90deg, transparent, var(--copper));
+  opacity: 0.85;
+}
+.rule::after { background: linear-gradient(90deg, var(--copper), transparent); }
+.rule svg { width: clamp(11px, 4.2cqw, 17px); height: auto; color: var(--copper); flex: none; }
+.rule.is-left { justify-content: flex-start; }
+.rule.is-left::before { display: none; }
+.rule.is-left::after { width: clamp(50px, 24%, 130px); }
 
 /* --------------------------------------------------------------- Vitrine */
 
-.showcase { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-@media (max-width: 1000px) { .showcase { grid-template-columns: repeat(2, 1fr); } }
-
-.dish { position: relative; aspect-ratio: 1; overflow: hidden; background: var(--ink-2); }
-.dish.is-tall { grid-row: span 2; aspect-ratio: 1 / 2; }
-@media (max-width: 1000px) { .dish.is-tall { grid-row: span 1; aspect-ratio: 1; } }
-
-.dish img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 1s var(--ease), filter 0.6s var(--ease);
-  filter: brightness(0.82);
+.showcase {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
-.dish:hover img { transform: scale(1.06); filter: brightness(0.55); }
-
-.dish-body {
-  position: absolute;
-  inset: auto 0 0;
-  padding: 1.3rem;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1rem;
-  background: linear-gradient(to top, rgba(11, 9, 8, 0.9), transparent);
-  transform: translateY(6px);
-  opacity: 0;
-  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
-}
-.dish:hover .dish-body, .dish:focus-within .dish-body { opacity: 1; transform: none; }
-@media (hover: none) { .dish-body { opacity: 1; transform: none; } }
-
-.dish-name { font-family: var(--display); font-size: 1.25rem; line-height: 1.15; }
-.dish-price { font-size: 0.78rem; letter-spacing: 0.08em; color: var(--copper-lt); white-space: nowrap; }
+@media (max-width: 1080px) { .showcase { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px)  { .showcase { grid-template-columns: 1fr; } }
 
 /* --------------------------------------------------------------- Citação */
 
@@ -521,10 +636,10 @@ section { position: relative; }
 .map {
   aspect-ratio: 4 / 3;
   border: 1px solid var(--line);
-  filter: grayscale(1) invert(0.92) contrast(0.86) brightness(0.94);
+  filter: invert(0.91) hue-rotate(180deg) grayscale(0.28) contrast(0.92) brightness(0.98);
   transition: filter 0.6s var(--ease);
 }
-.map:hover { filter: grayscale(0.5) invert(0.9) contrast(0.9); }
+.map:hover { filter: invert(0.88) hue-rotate(180deg) grayscale(0.1) contrast(0.95); }
 .map iframe { width: 100%; height: 100%; border: 0; display: block; }
 
 /* ------------------------------------------------------------------- CTA */
@@ -656,41 +771,42 @@ section { position: relative; }
   gap: 1.5rem;
   margin-bottom: 2.4rem;
 }
-.menu-cat-head h2 { font-size: clamp(2rem, 5vw, 3.4rem); }
+.menu-cat-head h2 {
+  font-family: var(--stencil);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-size: clamp(1.7rem, 4vw, 2.9rem);
+}
 .menu-cat-count { font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-dim); }
 
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: clamp(1.2rem, 2.4vw, 2rem);
+  grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+  gap: 10px;
 }
-.menu-item { display: flex; flex-direction: column; }
-.menu-item-img {
-  aspect-ratio: 1;
-  overflow: hidden;
-  background: var(--ink-3);
-  margin-bottom: 1rem;
-  position: relative;
+
+/* Item sem foto: mantém o mesmo cartão, com o monograma no lugar da imagem. */
+.plate.is-empty {
+  background:
+    radial-gradient(90% 70% at 50% 30%, rgba(198, 136, 74, 0.14), transparent 70%),
+    var(--ink-3);
 }
-.menu-item-img img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  filter: brightness(0.9);
-  transition: transform 0.9s var(--ease), filter 0.5s var(--ease);
+.plate.is-empty::before { border-color: rgba(198, 136, 74, 0.2); }
+.plate.is-empty::after {
+  background: linear-gradient(to top, rgba(11, 9, 8, 0.9) 6%, rgba(11, 9, 8, 0.4) 40%, transparent);
 }
-.menu-item:hover .menu-item-img img { transform: scale(1.05); filter: brightness(1); }
-.menu-item-img.is-empty::after {
-  content: "HF";
-  position: absolute; inset: 0;
-  display: grid; place-items: center;
+.plate-mono {
+  position: absolute;
+  inset: 0 0 34%;
+  display: grid;
+  place-items: center;
   font-family: var(--display);
-  font-size: 2rem;
-  color: rgba(198, 136, 74, 0.3);
+  font-size: clamp(3rem, 7vw, 4.6rem);
+  color: rgba(198, 136, 74, 0.28);
+  letter-spacing: 0.06em;
+  z-index: 1;
 }
-.menu-item-top { display: flex; align-items: baseline; justify-content: space-between; gap: 0.8rem; }
-.menu-item h3 { font-size: 1.16rem; line-height: 1.2; }
-.menu-item-price { font-size: 0.82rem; color: var(--copper-lt); white-space: nowrap; letter-spacing: 0.04em; }
-.menu-item p { margin: 0.5rem 0 0; font-size: 0.86rem; line-height: 1.55; color: var(--cream-dim); }
 
 .menu-note {
   font-size: 0.78rem;

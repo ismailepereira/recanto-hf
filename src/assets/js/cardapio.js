@@ -1,4 +1,6 @@
 /* Recanto HF — monta o cardápio a partir de assets/data/menu.json.
+   Cada item vira um cartão no padrão das peças da casa: foto ocupando tudo,
+   selo no alto e nome, ingredientes e PREÇO dentro da própria foto.
    O JSON é gerado por tools/sync_menu.py (fonte: cardápio digital do cliente). */
 
 (function () {
@@ -17,31 +19,59 @@
     return node;
   }
 
-  function renderItem(item) {
-    var article = el('article', 'menu-item');
+  /* "morango, kiwi, vodka" -> "MORANGO • KIWI • VODKA".
+     Descrições longas continuam como frase: virariam um paredão em caixa alta. */
+  function formatarIngredientes(texto) {
+    var limpo = texto.replace(/\s+/g, ' ').trim().replace(/[.;]+$/, '');
+    if (!limpo) return null;
 
-    var figure = el('div', 'menu-item-img');
+    var partes = limpo.split(/\s*,\s*/).filter(Boolean);
+    var virouLista = partes.length > 1 && limpo.length <= 82;
+
+    return {
+      texto: virouLista ? partes.join(' • ') : limpo,
+      lista: virouLista
+    };
+  }
+
+  function renderItem(item) {
+    var card = el('article', 'plate');
+
     if (item.img) {
       var img = new Image();
       img.src = item.img;
       img.alt = item.nome;
       img.loading = 'lazy';
       img.decoding = 'async';
-      figure.appendChild(img);
+      card.appendChild(img);
     } else {
-      figure.classList.add('is-empty');
+      card.classList.add('is-empty');
+      card.appendChild(el('span', 'plate-mono', 'HF'));
     }
-    article.appendChild(figure);
 
-    var top = el('div', 'menu-item-top');
-    top.appendChild(el('h3', null, item.nome));
-    top.appendChild(el('span', 'menu-item-price', brl.format(item.preco)));
-    article.appendChild(top);
+    var selo = el('span', 'plate-logo');
+    selo.setAttribute('aria-hidden', 'true');
+    selo.innerHTML = '<svg viewBox="0 0 200 118"><use href="#hf-selo"/></svg>';
+    card.appendChild(selo);
 
-    if (item.descricao) {
-      article.appendChild(el('p', null, item.descricao));
+    var body = el('div', 'plate-body');
+    body.appendChild(el('h3', 'plate-name', item.nome));
+
+    var filete = el('span', 'rule');
+    filete.setAttribute('aria-hidden', 'true');
+    filete.innerHTML = '<svg viewBox="0 0 24 24"><use href="#hf-folha"/></svg>';
+    body.appendChild(filete);
+
+    var ing = item.descricao ? formatarIngredientes(item.descricao) : null;
+    if (ing) {
+      var p = el('p', 'plate-ing' + (ing.lista ? '' : ' is-sentence'), ing.texto);
+      body.appendChild(p);
     }
-    return article;
+
+    body.appendChild(el('span', 'plate-price', brl.format(item.preco)));
+    card.appendChild(body);
+
+    return card;
   }
 
   function renderCategory(cat) {
