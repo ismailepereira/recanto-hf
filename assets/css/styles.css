@@ -244,48 +244,47 @@ h1, h2, h3 {
 
 /* ------------------------------------------------------------------- Hero */
 
-/* O hero é um trilho alto: a tela fica presa enquanto a pessoa rola, e a
-   rolagem é o que faz o vídeo andar. No celular o trilho some — seek de vídeo
-   por scroll é irregular no iOS — e o vídeo roda sozinho, em laço. */
 .hero {
   position: relative;
-  height: 210svh;
-}
-@media (max-width: 860px) { .hero { height: 190svh; } }
-@media (prefers-reduced-motion: reduce) { .hero { height: 100svh; } }
-
-.hero-stage {
-  position: sticky;
-  top: 0;
-  height: 100svh;
+  min-height: 100svh;
   display: flex;
   align-items: flex-end;
   padding-block: 8rem 3rem;
   overflow: hidden;
 }
-
-.hero-bg { position: absolute; inset: 0; z-index: 0; }
-.hero-bg video,
+/* Tríptico: três fotos quadradas em colunas verticais. O corte vertical
+   respeita o formato original e evita o macro exagerado do full-bleed. */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
 .hero-bg img {
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center 46%;
-  filter: brightness(0.6) saturate(0.95) contrast(1.06);
+  filter: saturate(0.85) contrast(1.06) brightness(0.62);
+  animation: heroDrift 26s var(--ease) infinite alternate;
 }
-/* Tela estreita corta 3/4 do quadro 16:9: desloca o enquadramento para a
-   taça, que está um pouco à direita do centro. */
+.hero-bg img:nth-child(2) { animation-delay: -9s; }
+.hero-bg img:nth-child(3) { animation-delay: -18s; }
 @media (max-width: 860px) {
-  .hero-bg video, .hero-bg img { object-position: 58% 44%; }
+  .hero-bg { grid-template-columns: 1fr; }
+  .hero-bg img:nth-child(n + 2) { display: none; }
 }
-
+@keyframes heroDrift {
+  from { transform: scale(1); }
+  to   { transform: scale(1.07); }
+}
 .hero-bg::after {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to top, var(--ink) 2%, rgba(11, 9, 8, 0.86) 30%, rgba(11, 9, 8, 0.42) 62%, rgba(11, 9, 8, 0.66)),
-    radial-gradient(110% 75% at 22% 78%, rgba(11, 9, 8, 0.7), transparent 62%);
+    linear-gradient(to top, var(--ink) 2%, rgba(11, 9, 8, 0.88) 34%, rgba(11, 9, 8, 0.5) 66%, rgba(11, 9, 8, 0.72)),
+    radial-gradient(110% 75% at 22% 78%, rgba(11, 9, 8, 0.75), transparent 62%);
 }
 
 .hero-inner { position: relative; z-index: 1; width: 100%; }
@@ -324,22 +323,6 @@ h1, h2, h3 {
   background: linear-gradient(var(--copper), transparent);
 }
 @media (max-width: 900px) { .scroll-hint { display: none; } }
-
-/* Fio de progresso do vídeo, no pé do hero: mostra que rolar move a cena. */
-.hero-scrub {
-  position: absolute;
-  inset: auto 0 0;
-  z-index: 2;
-  height: 2px;
-  background: rgba(243, 237, 228, 0.1);
-}
-.hero-scrub span {
-  display: block;
-  height: 100%;
-  width: 0;
-  background: linear-gradient(90deg, var(--copper), var(--copper-lt));
-}
-@media (prefers-reduced-motion: reduce) { .hero-scrub { display: none; } }
 
 /* ---------------------------------------------------------------- Marquee */
 
