@@ -68,9 +68,13 @@ O script regrava `src/assets/data/menu.json` e baixa só as fotos que faltam.
 Codificado com keyframe a cada 6 quadros (`-g 6`), que é o que deixa o seek
 por rolagem fluido; com o GOP padrão o vídeo engasga ao ser percorrido.
 
-No computador o hero é um trilho de 210svh: a cena fica presa e a rolagem
-define o tempo do vídeo. No celular (≤860px) e para quem pede menos movimento,
-o trilho some e o vídeo roda sozinho em laço.
+O hero é um trilho (210svh no computador, 190svh no celular): a cena fica
+presa e a rolagem define o tempo do vídeo. O vídeo nunca toca sozinho.
+
+No iOS o seek só fica fluido depois que o decoder acorda, então `hero-video.js`
+dá um `play()` mudo seguido de `pause()` na largada — nada aparece em
+movimento, e o seek passa a responder. Quem tem "reduzir movimento" ligado no
+sistema recebe o hero de uma tela só, parado no primeiro quadro.
 
 Para trocar o vídeo, refaça a conversão:
 ```
