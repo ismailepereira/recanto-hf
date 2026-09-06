@@ -1,0 +1,771 @@
+{
+  "restaurante": "Empório recanto hf",
+  "telefone": "(94) 99138-9831",
+  "instagram": "recantohf",
+  "cidade": "Anapu-PA",
+  "fonte": "Takeat (cardápio digital do cliente)",
+  "categorias": [
+    {
+      "id": "drinks",
+      "nome": "Drinks autorais",
+      "itens": [
+        {
+          "nome": "Moscow Mule",
+          "descricao": "LIMÃO, VODKA, CHAROPE DE GENGIBRE E ESPUMA DE GENGIBRE",
+          "preco": 30.0,
+          "disponivel": true,
+          "img": "assets/img/menu/moscow-mule.webp"
+        },
+        {
+          "nome": "Especial HF",
+          "descricao": "morango, kiwi, vodka, expuma de gengibre",
+          "preco": 30.0,
+          "disponivel": true,
+          "img": "assets/img/menu/especial-hf.webp"
+        },
+        {
+          "nome": "Onça Pintada",
+          "descricao": "polpa natural de maracuja, vodka, expuma de gengibre",
+          "preco": 30.0,
+          "disponivel": true,
+          "img": "assets/img/menu/onca-pintada.webp"
+        },
+        {
+          "nome": "Sex On The Beach",
+          "descricao": "granadine,gin, suco de laranja",
+          "preco": 30.0,
+          "disponivel": true,
+          "img": "assets/img/menu/sex-on-the-beach.webp"
+        },
+        {
+          "nome": "Lagoa Azul",
+          "descricao": "CURAÇAL BLUE,VODKA, XAROPE, AGUA COM GAS, LIMÃO E GELO",
+          "preco": 30.0,
+          "disponivel": true,
+          "img": "assets/img/menu/lagoa-azul.webp"
+        },
+        {
+          "nome": "Pina Colada",
+          "descricao": "ABACAXI, LEITE DE COCO, LEITE CONDENSADO E RUM",
+          "preco": 30.0,
+          "disponivel": true,
+          "img": "assets/img/menu/pina-colada.webp"
+        },
+        {
+          "nome": "Nevada",
+          "descricao": "Limão, leite condensado, gelo e vodka",
+          "preco": 30.0,
+          "disponivel": true,
+          "img": "assets/img/menu/nevada.webp"
+        },
+        {
+          "nome": "Cozumel",
+          "descricao": "Cerveja, limão, sal e gelo",
+          "preco": 18.0,
+          "disponivel": true,
+          "img": "assets/img/menu/cozumel.webp"
+        },
+        {
+          "nome": "Drink Gin Maracuja",
+          "descricao": "POLPA DE MARACUJÁ, GIN E XAROPE",
+          "preco": 28.0,
+          "disponivel": true,
+          "img": "assets/img/menu/drink-gin-maracuja.webp"
+        },
+        {
+          "nome": "Aperol Spritz",
+          "descricao": "Aperol, champanhe, agua com gas,",
+          "preco": 30.0,
+          "disponivel": true,
+          "img": "assets/img/menu/aperol-spritz.webp"
+        },
+        {
+          "nome": "Gin Kiwi",
+          "descricao": "Gin, kiwi, xarope e limão",
+          "preco": 28.0,
+          "disponivel": true,
+          "img": "assets/img/menu/gin-kiwi.webp"
+        },
+        {
+          "nome": "Gin Morango",
+          "descricao": "Gin, morango, xarope e limão",
+          "preco": 28.0,
+          "disponivel": true,
+          "img": "assets/img/menu/gin-morango.webp"
+        },
+        {
+          "nome": "Caipirinha",
+          "descricao": "Cachaça, limão, xarope de açucar, gelo",
+          "preco": 15.0,
+          "disponivel": true,
+          "img": "assets/img/menu/caipirinha.webp"
+        },
+        {
+          "nome": "Preparo Cozumel",
+          "descricao": "",
+          "preco": 6.0,
+          "disponivel": true,
+          "img": "assets/img/menu/preparo-cozumel.webp"
+        },
+        {
+          "nome": "Gin Tropical",
+          "descricao": "GIM, ENERGETICO, FRUTA",
+          "preco": 35.0,
+          "disponivel": true,
+          "img": "assets/img/menu/gin-tropical.webp"
+        },
+        {
+          "nome": "Marguerita",
+          "descricao": "TEQUILA. CONTRAL. GELO E LIMÃO",
+          "preco": 30.0,
+          "disponivel": true,
+          "img": "assets/img/menu/marguerita.webp"
+        },
+        {
+          "nome": "Marguerita Blue",
+          "descricao": "TEKILA. CURAÇAL BLUE. CONTREAL. LIMÃO E GELO",
+          "preco": 35.0,
+          "disponivel": true,
+          "img": "assets/img/menu/marguerita-blue.webp"
+        }
+      ]
+    },
+    {
+      "id": "drinks-sem-alcool",
+      "nome": "Drinks sem álcool",
+      "itens": [
+        {
+          "nome": "Tropical HF",
+          "descricao": "KIWI, SUCO DE LARANJA E PITAIA",
+          "preco": 28.0,
+          "disponivel": true,
+          "img": "assets/img/menu/tropical-hf.webp"
+        },
+        {
+          "nome": "Drink sem Álcool de Morango",
+          "descricao": "MORANGO, XAROPE DE MORANGO, LIMÃO E GELO",
+          "preco": 25.0,
+          "disponivel": true,
+          "img": "assets/img/menu/drink-sem-alcool-de-morango.webp"
+        },
+        {
+          "nome": "Drink sem Álcool de Kiwi",
+          "descricao": "KIWI, XAROPE DE KIWI, LIMÃO E GELO",
+          "preco": 25.0,
+          "disponivel": true,
+          "img": "assets/img/menu/drink-sem-alcool-de-kiwi.webp"
+        },
+        {
+          "nome": "Limonada Suiça",
+          "descricao": "limão, leite condensado, leite de coco e gelo",
+          "preco": 20.0,
+          "disponivel": true,
+          "img": "assets/img/menu/limonada-suica.webp"
+        },
+        {
+          "nome": "Soda Italiana",
+          "descricao": "XAROPE, LIMÃO E AGUÁ COM GÁS",
+          "preco": 15.0,
+          "disponivel": true,
+          "img": "assets/img/menu/soda-italiana.webp"
+        },
+        {
+          "nome": "Coquetel Maracuja",
+          "descricao": "POLPA DE MARACUJÁ, LIMÃO, AGUÁ COM GÁS E XAROPE",
+          "preco": 25.0,
+          "disponivel": true,
+          "img": "assets/img/menu/coquetel-maracuja.webp"
+        }
+      ]
+    },
+    {
+      "id": "entradas",
+      "nome": "Para começar",
+      "itens": [
+        {
+          "nome": "Batata Especial",
+          "descricao": "batata, bacon, cheddar e parmesão",
+          "preco": 45.0,
+          "disponivel": true,
+          "img": "assets/img/menu/batata-especial.webp"
+        },
+        {
+          "nome": "Cevich",
+          "descricao": "file de tilapia em cubos. cebola roxa. limão. segredo do chef.e pimenta",
+          "preco": 45.0,
+          "disponivel": true,
+          "img": "assets/img/menu/cevich.webp"
+        },
+        {
+          "nome": "Porção de Camarão",
+          "descricao": "Porção de camarão",
+          "preco": 120.0,
+          "disponivel": true,
+          "img": "assets/img/menu/porcao-de-camarao.webp"
+        },
+        {
+          "nome": "Porção de Batata Frita",
+          "descricao": "Batata frita",
+          "preco": 30.0,
+          "disponivel": true,
+          "img": "assets/img/menu/porcao-de-batata-frita.webp"
+        },
+        {
+          "nome": "Queijo Coalho Assado",
+          "descricao": "queijo coalho assado, acompanhado de geleia de abacaxi com pimenta",
+          "preco": 20.0,
+          "disponivel": true,
+          "img": "assets/img/menu/queijo-coalho-assado.webp"
+        },
+        {
+          "nome": "Dadinho de Queijo Coalho",
+          "descricao": "Dadinho de queijo coalho frito, acompanhado de geleia de abacaxi com pimenta",
+          "preco": 20.0,
+          "disponivel": true,
+          "img": "assets/img/menu/dadinho-de-queijo-coalho.webp"
+        },
+        {
+          "nome": "Filé com Fritas",
+          "descricao": "Chapa de contrafilé com batata frita",
+          "preco": 100.0,
+          "disponivel": true,
+          "img": "assets/img/menu/file-com-fritas.webp"
+        },
+        {
+          "nome": "Filé de Tilápia À Milanesa",
+          "descricao": "Filé de tilápia à milanesa. Opção petisco ou com acompanhamentos, conforme disponibilidade",
+          "preco": 60.0,
+          "disponivel": true,
+          "img": "assets/img/menu/file-de-tilapia-a-milanesa.webp"
+        },
+        {
+          "nome": "Disco de Carne",
+          "descricao": "disco de file mignon. acompanhado do molho do chef",
+          "preco": 49.9,
+          "disponivel": true,
+          "img": "assets/img/menu/disco-de-carne.webp"
+        },
+        {
+          "nome": "Tábua de Frios",
+          "descricao": "Frutas, salames e queijos",
+          "preco": 100.0,
+          "disponivel": true,
+          "img": "assets/img/menu/tabua-de-frios.webp"
+        },
+        {
+          "nome": "Petisco de Frios",
+          "descricao": "Salame, queijo e azeitona",
+          "preco": 40.0,
+          "disponivel": true,
+          "img": "assets/img/menu/petisco-de-frios.webp"
+        },
+        {
+          "nome": "Costela Suina ao Molho Barbecue",
+          "descricao": "costelinha suina. molho barbecue. batata frita",
+          "preco": 80.0,
+          "disponivel": true,
+          "img": "assets/img/menu/costela-suina-ao-molho-barbecue.webp"
+        }
+      ]
+    },
+    {
+      "id": "pratos-especias",
+      "nome": "Pratos especiais",
+      "itens": [
+        {
+          "nome": "Salmão ao Molho de Maracuja",
+          "descricao": "SALMÃO, MOLHO DE MARACUJÁ COM LEGUMES SALTEADOS (SERVE 1 PESSOA)",
+          "preco": 60.0,
+          "disponivel": false,
+          "img": "assets/img/menu/salmao-ao-molho-de-maracuja.webp"
+        },
+        {
+          "nome": "Filé ao Molho Madeira",
+          "descricao": "Filé, molho madeira, arroz piamontese e batata palha ( SERVE 1 PESSOA)",
+          "preco": 45.0,
+          "disponivel": false,
+          "img": "assets/img/menu/file-ao-molho-madeira.webp"
+        },
+        {
+          "nome": "Fettucine ao Creme de Camarão",
+          "descricao": "MASSA FETTUCINE AO MOLHO DE CAMARÃO ( SERVE 1 PESSOA)",
+          "preco": 50.0,
+          "disponivel": false,
+          "img": "assets/img/menu/fettucine-ao-creme-de-camarao.webp"
+        },
+        {
+          "nome": "Filé À Parmegiana",
+          "descricao": "Filé, arroz e purê de batata ( serve 1 pessoa)",
+          "preco": 45.0,
+          "disponivel": false,
+          "img": "assets/img/menu/file-a-parmegiana.webp"
+        },
+        {
+          "nome": "Camarão Internacional",
+          "descricao": "arroz cremoso, ervilha, presunto, camarão empanado finalizado com batata frita ( serve 4 pessoas)",
+          "preco": 150.0,
+          "disponivel": false,
+          "img": "assets/img/menu/camarao-internacional.webp"
+        }
+      ]
+    },
+    {
+      "id": "executivios",
+      "nome": "Executivos",
+      "itens": [
+        {
+          "nome": "Prato Executivo de Picanha",
+          "descricao": "Acompanhamentos: arroz, farofa e vinagrete",
+          "preco": 35.0,
+          "disponivel": true,
+          "img": "assets/img/menu/prato-executivo-de-picanha.webp"
+        },
+        {
+          "nome": "Prato Executivo de Filé Mignon",
+          "descricao": "Acompanhamentos: arroz, farofa e vinagrete",
+          "preco": 35.0,
+          "disponivel": true,
+          "img": "assets/img/menu/prato-executivo-de-file-mignon.webp"
+        },
+        {
+          "nome": "Prato Executivo de Filé de Peixe",
+          "descricao": "Acompanhamentos: arroz, farofa e vinagrete",
+          "preco": 35.0,
+          "disponivel": true,
+          "img": "assets/img/menu/prato-executivo-de-file-de-peixe.webp"
+        },
+        {
+          "nome": "Chapa de Contra File",
+          "descricao": "",
+          "preco": 90.0,
+          "disponivel": true,
+          "img": null
+        }
+      ]
+    },
+    {
+      "id": "chapas-hf",
+      "nome": "Chapas HF",
+      "itens": [
+        {
+          "nome": "Picanha Especial do Chef",
+          "descricao": "Banana a milanesa, ovos estralados, feijão tropeiro, macaxeira, arroz tradicional farofa e vinagrete (serve 4 pessoas)",
+          "preco": 150.0,
+          "disponivel": false,
+          "img": "assets/img/menu/picanha-especial-do-chef.webp"
+        },
+        {
+          "nome": "Chapa de Picanha",
+          "descricao": "Chapa de picanha. Adicional de arroz, farofa e salada ( serve 3 pessoas)",
+          "preco": 100.0,
+          "disponivel": true,
+          "img": "assets/img/menu/chapa-de-picanha.webp"
+        },
+        {
+          "nome": "Chapa de File",
+          "descricao": "file, arroz tradicional, farofa e vingrete ( serve 3 pessoas)",
+          "preco": 100.0,
+          "disponivel": true,
+          "img": "assets/img/menu/chapa-de-file.webp"
+        },
+        {
+          "nome": "File de Tilapia a Milanesa Completo",
+          "descricao": "file de tilapia a milanesa. arroz tradicional, farofa e vinagrete ( serve 3 pessoas",
+          "preco": 75.0,
+          "disponivel": true,
+          "img": "assets/img/menu/file-de-tilapia-a-milanesa-completo.webp"
+        },
+        {
+          "nome": "Contra File",
+          "descricao": "",
+          "preco": 90.0,
+          "disponivel": false,
+          "img": null
+        }
+      ]
+    },
+    {
+      "id": "panelinhas",
+      "nome": "Panelinhas",
+      "itens": [
+        {
+          "nome": "Panelinha Goiana",
+          "descricao": "pequi em lascas, frango em cubos, linguiça apimentada, arroz cremoso e tempero secreto do chef",
+          "preco": 120.0,
+          "disponivel": false,
+          "img": null
+        },
+        {
+          "nome": "Panelinha Nordestina",
+          "descricao": "carne desfiada, queijo coalho, banana da terra, molho secreto do chefe finalizada com queijo ( serve 3 pessoas).",
+          "preco": 70.0,
+          "disponivel": true,
+          "img": "assets/img/menu/panelinha-nordestina.webp"
+        },
+        {
+          "nome": "Panelinha de Camarão",
+          "descricao": "camarão passado na manteiga de garrafa, arroz cremoso , molho do chefe e queijo ( serve 3 pessoas).",
+          "preco": 100.0,
+          "disponivel": true,
+          "img": "assets/img/menu/panelinha-de-camarao.webp"
+        },
+        {
+          "nome": "Panelinha de Frango",
+          "descricao": "Arroz cremoso, frango desfiado, palmito, azeitona e milho verde ( serve 3 pessoas).",
+          "preco": 60.0,
+          "disponivel": true,
+          "img": "assets/img/menu/panelinha-de-frango.webp"
+        }
+      ]
+    },
+    {
+      "id": "lanche",
+      "nome": "Lanches",
+      "itens": [
+        {
+          "nome": "Pizza P",
+          "descricao": "",
+          "preco": 18.0,
+          "disponivel": true,
+          "img": null
+        },
+        {
+          "nome": "Tapioca com Requeijão",
+          "descricao": "",
+          "preco": 7.0,
+          "disponivel": false,
+          "img": "assets/img/menu/tapioca-com-requeijao.webp"
+        },
+        {
+          "nome": "Tapioca Recheada",
+          "descricao": "TAPIOCA, QUEIJO, PRESUNTO, OVO",
+          "preco": 17.0,
+          "disponivel": false,
+          "img": "assets/img/menu/tapioca-recheada.webp"
+        },
+        {
+          "nome": "Tapioca com Manteiga de Garrafa",
+          "descricao": "",
+          "preco": 5.0,
+          "disponivel": false,
+          "img": null
+        },
+        {
+          "nome": "Tapioca com Ovo",
+          "descricao": "",
+          "preco": 8.0,
+          "disponivel": false,
+          "img": null
+        },
+        {
+          "nome": "Tapioca com Frango e Requeijão",
+          "descricao": "",
+          "preco": 17.0,
+          "disponivel": false,
+          "img": null
+        },
+        {
+          "nome": "Misto",
+          "descricao": "PÃO DE FORMA, PRESUNTO, QUEIJO",
+          "preco": 10.0,
+          "disponivel": false,
+          "img": "assets/img/menu/misto.webp"
+        },
+        {
+          "nome": "Sanduiche Natural",
+          "descricao": "PÃO DE FORMA, PATE DE FRANGO, ALFACE E TOMATE",
+          "preco": 8.0,
+          "disponivel": false,
+          "img": "assets/img/menu/sanduiche-natural.webp"
+        },
+        {
+          "nome": "Omelete",
+          "descricao": "OVOS, QUEIJO, TEMPEROS SELECIONADOS",
+          "preco": 12.0,
+          "disponivel": false,
+          "img": "assets/img/menu/omelete.webp"
+        },
+        {
+          "nome": "Panqueca de Frango",
+          "descricao": "Panqueca de frango",
+          "preco": 15.0,
+          "disponivel": false,
+          "img": "assets/img/menu/panqueca-de-frango.webp"
+        },
+        {
+          "nome": "Pão de Queijo",
+          "descricao": "",
+          "preco": 5.0,
+          "disponivel": false,
+          "img": "assets/img/menu/pao-de-queijo.webp"
+        },
+        {
+          "nome": "Pão de Queijo com Carne Desfiada",
+          "descricao": "",
+          "preco": 12.0,
+          "disponivel": false,
+          "img": "assets/img/menu/pao-de-queijo-com-carne-desfiada.webp"
+        },
+        {
+          "nome": "Pão de Queijo com Presunto",
+          "descricao": "PÃO DE QUEIJO COM PRESUNTO E QUEIJO TOSTADO",
+          "preco": 15.0,
+          "disponivel": true,
+          "img": "assets/img/menu/pao-de-queijo-com-presunto.webp"
+        },
+        {
+          "nome": "Pão de Queijo com Goiabada Ou Doce de Leite",
+          "descricao": "",
+          "preco": 10.0,
+          "disponivel": false,
+          "img": null
+        },
+        {
+          "nome": "Pão com Ovo",
+          "descricao": "",
+          "preco": 5.0,
+          "disponivel": false,
+          "img": null
+        },
+        {
+          "nome": "Pão com Ovo e Queijo",
+          "descricao": "",
+          "preco": 8.0,
+          "disponivel": false,
+          "img": null
+        }
+      ]
+    },
+    {
+      "id": "sobremesas",
+      "nome": "Sobremesas",
+      "itens": [
+        {
+          "nome": "Fatia de Bolo",
+          "descricao": "",
+          "preco": 22.0,
+          "disponivel": true,
+          "img": null
+        },
+        {
+          "nome": "Pudim",
+          "descricao": "Pudim",
+          "preco": 12.0,
+          "disponivel": true,
+          "img": "assets/img/menu/pudim.webp"
+        },
+        {
+          "nome": "Mousse de Maracujá",
+          "descricao": "Mousse de maracujá",
+          "preco": 12.0,
+          "disponivel": true,
+          "img": "assets/img/menu/mousse-de-maracuja.webp"
+        },
+        {
+          "nome": "Mousse de Limão",
+          "descricao": "Mousse de limão",
+          "preco": 12.0,
+          "disponivel": true,
+          "img": null
+        },
+        {
+          "nome": "Petit Gâteau",
+          "descricao": "",
+          "preco": 30.0,
+          "disponivel": true,
+          "img": null
+        }
+      ]
+    },
+    {
+      "id": "cafeteria",
+      "nome": "Cafeteria",
+      "itens": [
+        {
+          "nome": "Cafe Expresso",
+          "descricao": "CAFE MOIDO NA HORA - EXPRESSO",
+          "preco": 10.0,
+          "disponivel": true,
+          "img": "assets/img/menu/cafe-expresso.webp"
+        },
+        {
+          "nome": "Cappuccino",
+          "descricao": "BORDA DE DOCE DE LEITE - FINALIZADO COM CHANTILY",
+          "preco": 15.0,
+          "disponivel": true,
+          "img": "assets/img/menu/cappuccino.webp"
+        },
+        {
+          "nome": "Frappcino",
+          "descricao": "MISTURA GELADA DE CAPPUCCINO - ACOMPANHA BORDA DE DOCE DE LEITE E CHANTILLINY",
+          "preco": 18.0,
+          "disponivel": true,
+          "img": "assets/img/menu/frappcino.webp"
+        },
+        {
+          "nome": "Frappé de Morango",
+          "descricao": "",
+          "preco": 15.0,
+          "disponivel": true,
+          "img": "assets/img/menu/frappe-de-morango.webp"
+        },
+        {
+          "nome": "Expresso ao Leite",
+          "descricao": "CAFE MOIDO EXPRESSO COM LEITE EXPUMADO",
+          "preco": 12.0,
+          "disponivel": true,
+          "img": "assets/img/menu/expresso-ao-leite.webp"
+        },
+        {
+          "nome": "Cafe Tradicional",
+          "descricao": "",
+          "preco": 3.0,
+          "disponivel": true,
+          "img": null
+        }
+      ]
+    },
+    {
+      "id": "caldos",
+      "nome": "Caldos",
+      "itens": [
+        {
+          "nome": "Caldo de Frango",
+          "descricao": "Caldo de frango com torrada e queijo",
+          "preco": 25.0,
+          "disponivel": true,
+          "img": "assets/img/menu/caldo-de-frango.webp"
+        }
+      ]
+    },
+    {
+      "id": "bebidas",
+      "nome": "Bebidas",
+      "itens": [
+        {
+          "nome": "H2o",
+          "descricao": "",
+          "preco": 6.0,
+          "disponivel": true,
+          "img": "assets/img/menu/h2o.webp"
+        },
+        {
+          "nome": "Refrigerante Lata",
+          "descricao": "",
+          "preco": 5.0,
+          "disponivel": true,
+          "img": "assets/img/menu/refrigerante-lata.webp"
+        },
+        {
+          "nome": "Red Bull",
+          "descricao": "Energético Red Bull",
+          "preco": 12.0,
+          "disponivel": true,
+          "img": "assets/img/menu/red-bull.webp"
+        },
+        {
+          "nome": "Agua com Gás",
+          "descricao": "",
+          "preco": 5.0,
+          "disponivel": true,
+          "img": "assets/img/menu/agua-com-gas.webp"
+        },
+        {
+          "nome": "Agua Mineral",
+          "descricao": "",
+          "preco": 4.0,
+          "disponivel": true,
+          "img": "assets/img/menu/agua-mineral.webp"
+        },
+        {
+          "nome": "Suco de Maracujá",
+          "descricao": "Suco sabor maracujá",
+          "preco": 8.0,
+          "disponivel": true,
+          "img": "assets/img/menu/suco-de-maracuja.webp"
+        },
+        {
+          "nome": "Suco de Acerola",
+          "descricao": "Suco sabor acerola",
+          "preco": 8.0,
+          "disponivel": true,
+          "img": "assets/img/menu/suco-de-acerola.webp"
+        },
+        {
+          "nome": "Agua de Coco",
+          "descricao": "",
+          "preco": 10.0,
+          "disponivel": true,
+          "img": "assets/img/menu/agua-de-coco.webp"
+        },
+        {
+          "nome": "Coca Cola Ls",
+          "descricao": "",
+          "preco": 10.0,
+          "disponivel": true,
+          "img": "assets/img/menu/coca-cola-ls.webp"
+        }
+      ]
+    },
+    {
+      "id": "cervejas",
+      "nome": "Cervejas",
+      "itens": [
+        {
+          "nome": "Cerveja Long Neck",
+          "descricao": "Cerveja Heineken",
+          "preco": 10.0,
+          "disponivel": true,
+          "img": "assets/img/menu/cerveja-long-neck.webp"
+        },
+        {
+          "nome": "Chop de Vinho Stempel",
+          "descricao": "",
+          "preco": 12.0,
+          "disponivel": true,
+          "img": "assets/img/menu/chop-de-vinho-stempel.webp"
+        }
+      ]
+    },
+    {
+      "id": "doses",
+      "nome": "Doses",
+      "itens": [
+        {
+          "nome": "Dose de Campari",
+          "descricao": "Dose de Campari",
+          "preco": 20.0,
+          "disponivel": true,
+          "img": "assets/img/menu/dose-de-campari.webp"
+        },
+        {
+          "nome": "Dose de Whisky",
+          "descricao": "Dose de whisky",
+          "preco": 30.0,
+          "disponivel": true,
+          "img": null
+        }
+      ]
+    },
+    {
+      "id": "vinhos",
+      "nome": "Vinhos",
+      "itens": [
+        {
+          "nome": "Cella Lambrusco",
+          "descricao": "",
+          "preco": 100.0,
+          "disponivel": true,
+          "img": "assets/img/menu/cella-lambrusco.webp"
+        },
+        {
+          "nome": "Casal Garcia",
+          "descricao": "",
+          "preco": 130.0,
+          "disponivel": true,
+          "img": null
+        }
+      ]
+    }
+  ]
+}
