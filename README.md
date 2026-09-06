@@ -8,7 +8,7 @@ noturna em cobre e creme, na proporção **20% texto / 80% imagem**.
 
 ## Stack
 HTML + CSS + JavaScript puro, sem build e sem framework. Fontes via Google Fonts.
-Hospedado no GitHub Pages com deploy automático (GitHub Actions) a cada push na `main`.
+Hospedado no GitHub Pages, servindo a branch `gh-pages`.
 
 ## Estrutura
 ```
@@ -36,6 +36,16 @@ recanto-hf/
 ```
 python -m http.server 5311 --directory src
 ```
+
+## Publicando uma atualização
+O código-fonte fica na `main`; o que vai pro ar é o conteúdo de `src/`, servido
+pela branch `gh-pages`. Depois de commitar na `main`:
+```
+git subtree push --prefix src origin gh-pages
+```
+> Havia um workflow do GitHub Actions para automatizar isso, mas o token do `gh`
+> desta máquina não tem o escopo `workflow`. Para voltar ao deploy automático:
+> `gh auth refresh -s workflow` e então recriar `.github/workflows/pages.yml`.
 
 ## Atualizando o cardápio
 O cliente mantém o cardápio no Takeat. Para trazer preços e fotos novas:
